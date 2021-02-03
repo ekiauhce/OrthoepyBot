@@ -2,8 +2,8 @@ version: "3.3"
 
 services:
   orthoepy-bot:
-    container_name: bot
-    image: ekiauhce/orthoepy-bot:latest
+    container_name: bot-dev
+    image: ekiauhce/orthoepy-bot:dev
     build: ./
     env_file:
       - .env
