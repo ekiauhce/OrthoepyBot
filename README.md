@@ -52,5 +52,5 @@ docker run -d --restart on-failure --env-file .env --name bot ekiauhce/orthoepy-
 ## Or docker-compose (dev environment)
 
 ```
-docker-compose up -d
+docker-compose up --build -d
 ```
