@@ -32,7 +32,7 @@ JPA_SHOW_SQL=false
 ## Run docker container
 
 ```
-docker run -d --env-file .env --name bot ekiauhce/orthoepy-bot:latest
+docker run -d --restart on-failure --env-file .env --name bot ekiauhce/orthoepy-bot:latest
 ```
 
 ## Or docker-compose (dev environment)
