@@ -24,9 +24,7 @@ import static org.telegram.abilitybots.api.objects.Privacy.PUBLIC;
 import static org.telegram.abilitybots.api.util.AbilityUtils.getUser;
 
 @Component
-public class TelegramBot extends AbilityWebhookBot {
-
-    private final Logger logger = LoggerFactory.getLogger(TelegramBot.class);
+public class TelegramBot extends AbilityBot {
 
     @Autowired
     UserActionsController userActionsController;
@@ -155,28 +153,9 @@ public class TelegramBot extends AbilityWebhookBot {
         return creatorId;
     }
 
-//    public TelegramBot(
-//            @Value("${bot.api-token}") String botToken,
-//            @Value("${bot.username}") String botUsername) {
-//        super(botToken, botUsername);
-//    }
-//
-
     public TelegramBot(
             @Value("${bot.api-token}") String botToken,
-            @Value("${bot.username}") String botUsername,
-            @Value("${bot.webhook.url}") String botPath) {
-        super(botToken, botUsername, botPath);
-        logger.info(String.format("botPath: %s", botPath));
-        SetWebhook setWH = SetWebhook.builder()
-                .certificate(new InputFile(new File("/tmp/cert.pem")))
-                .url(botPath)
-                .build();
-        try {
-            setWebhook(setWH);
-        } catch (TelegramApiException e) {
-            logger.error(String.format("Error setting webhook: %s", e.getMessage()));
-        }
-        logger.info("Webhook was successfully set!");
+            @Value("${bot.username}") String botUsername) {
+        super(botToken, botUsername);
     }
 }

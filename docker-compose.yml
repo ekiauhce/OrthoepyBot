@@ -3,15 +3,13 @@ version: "3.3"
 services:
   orthoepy-bot:
     container_name: bot
-    image: ekiauhce/orthoepy-bot
+    image: ekiauhce/orthoepy-bot:latest
     build: ./
-    ports:
-    - "8443:8443"
     env_file:
       - .env
     depends_on:
-      - postgres-db
-  postgres-db:
+      - postgres
+  postgres:
     container_name: postgres
     image: postgres:13.1-alpine
     ports:
