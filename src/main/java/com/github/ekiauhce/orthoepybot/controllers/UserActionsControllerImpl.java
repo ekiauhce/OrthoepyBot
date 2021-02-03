@@ -67,7 +67,7 @@ public class UserActionsControllerImpl implements UserActionsController {
         return SendMessage.builder()
                 .chatId(user.getId().toString())
                 .text(String.format(format, score))
-                .parseMode(ParseMode.MARKDOWN)
+                .parseMode(ParseMode.HTML)
                 .replyMarkup(Utils.getKeyboardRemove())
                 .build();
     }
@@ -110,7 +110,7 @@ public class UserActionsControllerImpl implements UserActionsController {
         return SendMessage.builder()
                 .chatId(user.getId().toString())
                 .text("Таблица лидеров:\n" + leaderboardText + placeText)
-                .parseMode(ParseMode.MARKDOWN)
+                .parseMode(ParseMode.HTML)
                 .build();
     }
 
@@ -121,7 +121,7 @@ public class UserActionsControllerImpl implements UserActionsController {
         return SendMessage.builder()
                 .chatId(user.getId().toString())
                 .text("Мои ошибки:\n" + myMistakesText)
-                .parseMode(ParseMode.MARKDOWN)
+                .parseMode(ParseMode.HTML)
                 .build();
     }
 
@@ -131,16 +131,16 @@ public class UserActionsControllerImpl implements UserActionsController {
         return SendMessage.builder()
                 .chatId(user.getId().toString())
                 .text("Самые сложные слова:\n" + hardestWordsText)
-                .parseMode(ParseMode.MARKDOWN)
+                .parseMode(ParseMode.HTML)
                 .build();
     }
 
     private static final String START_TEXT = "Введите /practice, чтобы начать практику";
     private static final String PRACTICE_TEXT = "Выберите слово с правильной постановкой ударения:";
     private static final String BASIC_FORMAT =
-            "❌ Не верно! Ваш счет: \\[ *%s* ]. Введите /practice, чтобы начать заново";
+            "❌ Не верно! Ваш счет: [ <b>%s</b> ]. Введите /practice, чтобы начать заново";
     private static final String NEW_HS_FORMAT =
-            "❌ Не верно! Ваш счет: \\[ *%s* ]. Поздравляю, это новый рекорд \uD83C\uDF89 " +
+            "❌ Не верно! Ваш счет: [ <b>%s</b> ]. Поздравляю, это новый рекорд \uD83C\uDF89 " +
                     "Введите /practice, чтобы начать заново";
-    private static final String PLACE_FORMAT = "\nВаше место в рейтинге: \\[ *%s* ]";
+    private static final String PLACE_FORMAT = "\nВаше место в рейтинге: [ <b>%s</b> ]";
 }

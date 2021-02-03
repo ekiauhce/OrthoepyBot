@@ -50,7 +50,7 @@ public class Mistake {
     @Transient
     public String forMyMistakes() {
         return word.getCorrect() +
-                " \\[ *" + number + "* ]";
+                " [ <b>" + number + "</b> ]";
     }
 
     @Override

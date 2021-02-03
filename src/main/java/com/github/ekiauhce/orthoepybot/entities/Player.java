@@ -61,7 +61,7 @@ public class Player {
     public String forLeaderboard() {
         return firstName + " " +
                 (userName == null ? "" : "(@" + userName + ") ") +
-                "\\[ *" + highScore + "* ]";
+                "[ <b>" + highScore + "</b> ]";
     }
 
     @Override

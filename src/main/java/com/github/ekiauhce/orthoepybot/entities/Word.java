@@ -39,6 +39,6 @@ public class Word {
     @Transient
     public String forHardest() {
         return correct + " " +
-                "\\[ *" + totalWrongAnswers + "* ]";
+                "[ <b>" + totalWrongAnswers + "</b> ]";
     }
 }
