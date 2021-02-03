@@ -1,5 +1,13 @@
 # OrthoepyBot
 
+## App layers
+
+![layers](img/app.png)
+
+## Entities relations
+
+![entities](img/entities.png)
+
 ## Create .env file
 
 ```
@@ -24,7 +32,7 @@ JPA_SHOW_SQL=false
 ## Run docker container
 
 ```
-docker run --env-file .env --name bot ekiauhce/orthoepy-bot:latest
+docker run -d --env-file .env --name bot ekiauhce/orthoepy-bot:latest
 ```
 
 ## Or docker-compose (dev environment)
