@@ -1,5 +1,19 @@
 # OrthoepyBot
 
+## Technologies used:
+
+  - Java 11
+  - Spring (Boot, Core, Data, Test)
+  - Hibernate
+  - JUnit 5
+  - Gradle    
+  - Docker (docker-compose)
+  - Postgres DB
+  - Lombok
+  - AssertJ
+  - H2 Database
+  - [TelegramBots](https://github.com/rubenlagus/TelegramBots)
+
 ## App layers
 
 ![layers](img/app.png)
