@@ -109,7 +109,7 @@ public class UserActionsControllerImpl implements UserActionsController {
         String placeText = index != -1 ? String.format(PLACE_FORMAT, index + 1) : "";
         return SendMessage.builder()
                 .chatId(user.getId().toString())
-                .text("Таблица лидеров:\n" + leaderboardText + placeText)
+                .text("\uD83C\uDFC6 Таблица лидеров:\n" + leaderboardText + placeText)
                 .parseMode(ParseMode.HTML)
                 .build();
     }
@@ -120,7 +120,7 @@ public class UserActionsControllerImpl implements UserActionsController {
         String myMistakesText = orthoepyService.getMyMistakesText(player);
         return SendMessage.builder()
                 .chatId(user.getId().toString())
-                .text("Мои ошибки:\n" + myMistakesText)
+                .text("\uD83D\uDCCB Мои ошибки:\n" + myMistakesText)
                 .parseMode(ParseMode.HTML)
                 .build();
     }
@@ -130,17 +130,17 @@ public class UserActionsControllerImpl implements UserActionsController {
         String hardestWordsText = orthoepyService.getHardestWordsText();
         return SendMessage.builder()
                 .chatId(user.getId().toString())
-                .text("Самые сложные слова:\n" + hardestWordsText)
+                .text("\uD83E\uDD2F Самые сложные слова:\n" + hardestWordsText)
                 .parseMode(ParseMode.HTML)
                 .build();
     }
 
-    private static final String START_TEXT = "Введите /practice, чтобы начать практику";
-    private static final String PRACTICE_TEXT = "Выберите слово с правильной постановкой ударения:";
+    private static final String START_TEXT = "\uD83D\uDCA1 Введите /practice, чтобы начать практику";
+    private static final String PRACTICE_TEXT = "Выберите слово с правильным ударением:";
     private static final String BASIC_FORMAT =
-            "❌ Не верно! Ваш счет: [ <b>%s</b> ]. Введите /practice, чтобы начать заново";
+            "❌ Не верно! Ваш счет: [ <b>%s</b> ]\n↩️ Введите /practice, чтобы начать заново";
     private static final String NEW_HS_FORMAT =
-            "❌ Не верно! Ваш счет: [ <b>%s</b> ]. Поздравляю, это новый рекорд \uD83C\uDF89 " +
-                    "Введите /practice, чтобы начать заново";
+            "❌ Не верно! Ваш счет: [ <b>%s</b> ]\n\uD83C\uDF89 Это новый рекорд!\n" +
+                    "↩️ Введите /practice, чтобы начать заново";
     private static final String PLACE_FORMAT = "\nВаше место в рейтинге: [ <b>%s</b> ]";
 }
