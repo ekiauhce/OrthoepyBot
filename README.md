@@ -6,6 +6,7 @@
   - Spring (Boot, Core, Data, Test)
   - Hibernate
   - JUnit 5
+  - Mockito  
   - Gradle    
   - Docker (docker-compose)
   - Postgres DB
