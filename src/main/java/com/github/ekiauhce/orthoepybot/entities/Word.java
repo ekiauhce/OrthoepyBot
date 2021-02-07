@@ -15,7 +15,10 @@ import java.util.function.Function;
 @Setter
 @Getter
 @Entity
-@Table(name = "word")
+@Table(
+        name = "word",
+        uniqueConstraints = @UniqueConstraint(columnNames = {"correct", "wrong"})
+)
 public class Word {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
