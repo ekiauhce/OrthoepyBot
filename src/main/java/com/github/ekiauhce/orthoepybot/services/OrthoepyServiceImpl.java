@@ -2,7 +2,6 @@ package com.github.ekiauhce.orthoepybot.services;
 
 
 import com.github.ekiauhce.orthoepybot.entities.Mistake;
-import com.github.ekiauhce.orthoepybot.entities.MistakeId;
 import com.github.ekiauhce.orthoepybot.entities.Player;
 import com.github.ekiauhce.orthoepybot.entities.Word;
 import com.github.ekiauhce.orthoepybot.repositories.MistakeRepository;
@@ -127,7 +126,7 @@ public class OrthoepyServiceImpl implements OrthoepyService {
     @Override
     public void increaseMistakeNumber(Player player) {
         Mistake mistake = mistakeRepository
-                .findById(new MistakeId(player.getId(), player.getWord().getId()))
+                .findByPlayerIdAndWordId(player.getId(), player.getWord().getId())
                 .orElse(new Mistake(player, player.getWord()));
         mistake.setNumber(mistake.getNumber() + 1);
         mistakeRepository.save(mistake);
