@@ -14,30 +14,33 @@ import java.util.function.Function;
 @Setter
 @Getter
 @Entity
-@Table(name = "mistake")
+@Table(
+        name = "mistake",
+        uniqueConstraints = @UniqueConstraint(columnNames = {"player_id", "word_id"})
+)
 public class Mistake {
-    @EmbeddedId
-    private MistakeId id;
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    private Integer id;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @MapsId("playerId")
+    @JoinColumn(name = "player_id")
     private Player player;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @MapsId("wordId")
+    @JoinColumn(name = "word_id")
     private Word word;
 
     @Column(name = "number", nullable = false)
     private Integer number = 0;
 
     public Mistake(Player player, Word word) {
-        this.id = new MistakeId(player.getId(), word.getId());
         this.player = player;
         this.word = word;
     }
 
     public Mistake(Player player, Word word, Integer number) {
-        this.id = new MistakeId(player.getId(), word.getId());
         this.player = player;
         this.word = word;
         this.number = number;
