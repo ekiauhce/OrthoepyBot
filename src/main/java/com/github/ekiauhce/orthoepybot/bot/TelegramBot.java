@@ -137,6 +137,23 @@ public class TelegramBot extends AbilityBot {
                 .build();
     }
 
+    /**
+     * Responds to /help command
+     * @see UserActionsController#help(User)
+     */
+    public Ability help() {
+        return Ability.builder()
+                .name("help")
+                .info("Помощь")
+                .locality(USER)
+                .privacy(PUBLIC)
+                .action(ctx -> {
+                    SendMessage helpMsg = userActionsController.help(ctx.user());
+                    silent.execute(helpMsg);
+                })
+                .build();
+    }
+
     @Value("${bot.creator-id}")
     private int creatorId;
 
