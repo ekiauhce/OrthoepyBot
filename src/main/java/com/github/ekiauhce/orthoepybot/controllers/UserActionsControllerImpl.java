@@ -146,10 +146,12 @@ public class UserActionsControllerImpl implements UserActionsController {
     private static final String START_TEXT = "▶️ Введите /practice, чтобы начать практику";
     private static final String PRACTICE_TEXT = "Выберите слово с правильным ударением:";
     private static final String BASIC_FORMAT =
-            "❌ Не верно! Ваш счет: [ <b>%s</b> ]\n↩️ Введите /practice, чтобы начать заново";
+            "❌ Не верно! Ваш счет: [ <b>%s</b> ]\n" +
+            "↩️ Введите /practice, чтобы начать заново";
     private static final String NEW_HS_FORMAT =
-            "❌ Не верно! Ваш счет: [ <b>%s</b> ]\n\uD83C\uDF89 Это новый рекорд!\n" +
-                    "↩️ Введите /practice, чтобы начать заново";
+            "❌ Не верно! Ваш счет: [ <b>%s</b> ]\n" +
+            "\uD83C\uDF89 Это новый рекорд!\n" +
+            "↩️ Введите /practice, чтобы начать заново";
     private static final String PLACE_FORMAT = "\nВаше место в рейтинге: [ <b>%s</b> ]";
     private static final String HELP_TEXT =
             "❓ Как посмотреть список доступных комманд?\n" +
