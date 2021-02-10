@@ -135,7 +135,15 @@ public class UserActionsControllerImpl implements UserActionsController {
                 .build();
     }
 
-    private static final String START_TEXT = "\uD83D\uDCA1 Введите /practice, чтобы начать практику";
+    @Override
+    public SendMessage help(User user) {
+        return SendMessage.builder()
+                .chatId(user.getId().toString())
+                .text(HELP_TEXT)
+                .build();
+    }
+
+    private static final String START_TEXT = "▶️ Введите /practice, чтобы начать практику";
     private static final String PRACTICE_TEXT = "Выберите слово с правильным ударением:";
     private static final String BASIC_FORMAT =
             "❌ Не верно! Ваш счет: [ <b>%s</b> ]\n↩️ Введите /practice, чтобы начать заново";
@@ -143,4 +151,22 @@ public class UserActionsControllerImpl implements UserActionsController {
             "❌ Не верно! Ваш счет: [ <b>%s</b> ]\n\uD83C\uDF89 Это новый рекорд!\n" +
                     "↩️ Введите /practice, чтобы начать заново";
     private static final String PLACE_FORMAT = "\nВаше место в рейтинге: [ <b>%s</b> ]";
+    private static final String HELP_TEXT =
+            "❓ Как посмотреть список доступных комманд?\n" +
+            "\uD83D\uDCA1 /commands\n" +
+            "\n" +
+            "❓ Есть ли рейтинговая система?\n" +
+            "\uD83D\uDCA1 Да, /leaderboard\n" +
+            "\n" +
+            "❓ Как посмотреть список своих ошибок?\n" +
+            "\uD83D\uDCA1 /mistakes\n" +
+            "\n" +
+            "❓ Как посмотреть список самых сложных слов?\n" +
+            "\uD83D\uDCA1 /hardest\n" +
+            "\n" +
+            "❓ Как изменить никнейм в таблице лидеров?\n" +
+            "\uD83D\uDCA1 Он меняется автоматически, при вводе любой команды\n" +
+            "\n" +
+            "❓ Остались вопросы?\n" +
+            "\uD83D\uDCA1 Напиши мне в личку, @ekiauhce\n";
 }
