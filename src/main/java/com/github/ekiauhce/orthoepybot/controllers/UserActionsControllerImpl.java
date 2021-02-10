@@ -143,7 +143,9 @@ public class UserActionsControllerImpl implements UserActionsController {
                 .build();
     }
 
-    private static final String START_TEXT = "▶️ Введите /practice, чтобы начать практику";
+    private static final String START_TEXT =
+            "▶️ Введите /practice, чтобы начать практику\n" +
+            "❔ Введите /help, если возникли вопросы";
     private static final String PRACTICE_TEXT = "Выберите слово с правильным ударением:";
     private static final String BASIC_FORMAT =
             "❌ Не верно! Ваш счет: [ <b>%s</b> ]\n" +
