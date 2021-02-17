@@ -1,5 +1,28 @@
 # OrthoepyBot
 
+## Statement of problem
+
+Students of last grades having troubles with practicing orthoepy section for Russian language USE because of no rule for stress placement. So orthoepy requires special approach: regular repetition. By experience, cramming 3 hundred boring words is not what you like to do regularly.
+
+## Solution
+
+Make practicing process more *enjoyable*. This is achieved by using game-orienting approach. It includes:
+* Imaginary value
+* Competitive component
+* Statistics gathering
+
+### Imaginary value
+
+Each wrong answer ends game flow.  So, If student answered, for example, more than 50 questions, he starts cares about scored points.
+
+### Competitive component
+
+We make a greater effort, if result would be compared to others. Therefor every bot user can see top 10 of best players.
+ 
+### Statistics gathering
+
+Be able to analyze your mistakes is cool. It is helps to find out, where you have the gaps in knowledge.
+
 ## Technologies used:
 
   - Java 11
