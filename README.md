@@ -35,7 +35,6 @@ Be able to analyze your mistakes is cool. It helps to find out, where you have t
   - Postgres DB
   - Lombok
   - AssertJ
-  - H2 Database
   - [TelegramBots](https://github.com/rubenlagus/TelegramBots)
 
 ## App layers
