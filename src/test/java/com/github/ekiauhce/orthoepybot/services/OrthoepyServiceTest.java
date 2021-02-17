@@ -1,7 +1,6 @@
 package com.github.ekiauhce.orthoepybot.services;
 
 import com.github.ekiauhce.orthoepybot.entities.Mistake;
-import com.github.ekiauhce.orthoepybot.entities.MistakeId;
 import com.github.ekiauhce.orthoepybot.entities.Player;
 import com.github.ekiauhce.orthoepybot.entities.Word;
 import com.github.ekiauhce.orthoepybot.repositories.MistakeRepository;
@@ -76,7 +75,7 @@ class OrthoepyServiceTest {
     }
 
     @Test
-    void getPlayer_ifNoPlayerWithUserIdReturnsNewPlayer_True() {
+    void getPlayer_returnsNewWhenPlayerDoesNotExists_True() {
         Mockito.when(playerRepository.findById(10)).thenReturn(Optional.empty());
 
         User user = new User(10, "Andrey", false);
@@ -86,7 +85,7 @@ class OrthoepyServiceTest {
     }
 
     @Test
-    void getPlayer_ifUserExistsReturnPlayerFromRepo_True() {
+    void getPlayer_returnsActualWhenPlayerExistsInDatabase_True() {
         Mockito.when(playerRepository.findById(11)).thenReturn(Optional.of(player));
 
         // User may change first name in telegram
@@ -96,15 +95,9 @@ class OrthoepyServiceTest {
 
         verify(playerRepository, times(1)).findById(11);
     }
-    @Test
-    void savePlayer_repositorySaveMethodIsCalled_True() {
-        orthoepyService.savePlayer(player);
-
-        verify(playerRepository, times(1)).save(player);
-    }
 
     @Test
-    void getIsPracticing_ReturnsActualIsPracticingValue_True() {
+    void getIsPracticing_returnsActualIsPracticingValue_True() {
         assertThat(orthoepyService.getIsPracticing(player)).isEqualTo(player.getIsPracticing());
     }
 
@@ -276,16 +269,16 @@ class OrthoepyServiceTest {
     @Test
     void increaseMistakeNumber_MistakeNumberIncreasedByOne_True() {
         int number = mistake.getNumber();
-        MistakeId mistakeId = new MistakeId(player.getId(), word.getId());
 
-        Mockito.when(mistakeRepository.findById(mistakeId)).thenReturn(Optional.of(mistake));
+        Mockito.when(mistakeRepository.findByPlayerIdAndWordId(player.getId(), word.getId()))
+                .thenReturn(Optional.of(mistake));
 
         player.setWord(word);
         orthoepyService.increaseMistakeNumber(player);
 
         assertThat(mistake.getNumber().equals(number + 1)).isEqualTo(true);
 
-        verify(mistakeRepository, times(1)).findById(mistakeId);
+        verify(mistakeRepository, times(1)).findByPlayerIdAndWordId(player.getId(), word.getId());
     }
 
     @Test
