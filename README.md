@@ -2,7 +2,7 @@
 
 ## Statement of problem
 
-Students of last grades have troubles with practicing orthoepy section for Russian language USE because of no rule for stress placement. So orthoepy requires special approach: regular repetition. By experience, cramming 3 hundred boring words is not what you would like to do regularly.
+Students of last grades have troubles with practicing orthoepy section for Russian language RNE(EGE) because of no rule for stress placement. So orthoepy requires special approach: regular repetition. By experience, cramming 3 hundred boring words is not what you would like to do regularly.
 
 ## Solution
 
