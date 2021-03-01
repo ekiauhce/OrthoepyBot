@@ -8,6 +8,7 @@ import org.telegram.abilitybots.api.bot.AbilityBot;
 import org.telegram.abilitybots.api.objects.Ability;
 import org.telegram.abilitybots.api.objects.Flag;
 import org.telegram.abilitybots.api.objects.Reply;
+import org.telegram.abilitybots.api.toggle.BareboneToggle;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.User;
 
@@ -162,9 +163,11 @@ public class TelegramBot extends AbilityBot {
         return creatorId;
     }
 
+    private static final BareboneToggle toggle = new BareboneToggle();
+
     public TelegramBot(
             @Value("${bot.api-token}") String botToken,
             @Value("${bot.username}") String botUsername) {
-        super(botToken, botUsername);
+        super(botToken, botUsername, toggle);
     }
 }
