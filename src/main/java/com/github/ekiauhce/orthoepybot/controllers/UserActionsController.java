@@ -23,4 +23,5 @@ public interface UserActionsController {
     SendMessage mistakes(User user);
     SendMessage hardest(User user);
     SendMessage help(User user);
+    SendMessage stats(User user);
 }

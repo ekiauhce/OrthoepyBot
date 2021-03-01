@@ -155,6 +155,24 @@ public class TelegramBot extends AbilityBot {
                 .build();
     }
 
+
+    /**
+     * Responds to /stats command
+     * @see UserActionsController#stats(User) 
+     */
+    public Ability reportStats() {
+        return Ability.builder()
+                .name("stats")
+                .info("Статистика")
+                .locality(USER)
+                .privacy(PUBLIC)
+                .action(ctx -> {
+                    SendMessage statsMsg = userActionsController.stats(ctx.user());
+                    silent.execute(statsMsg);
+                })
+                .build();
+    }
+
     @Value("${bot.creator-id}")
     private int creatorId;
 

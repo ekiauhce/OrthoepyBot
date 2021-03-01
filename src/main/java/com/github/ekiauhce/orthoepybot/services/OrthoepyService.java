@@ -171,4 +171,16 @@ public interface OrthoepyService {
      * {@link #resetScore(Player)}
      */
     void summarizeScore(Player player);
+
+
+    /**
+     * Returns number of all players
+     */
+    Long getPlayersNumber();
+
+
+    /**
+     * Returns number of total mistakes
+     */
+    Integer getTotalMistakesNumber();
 }

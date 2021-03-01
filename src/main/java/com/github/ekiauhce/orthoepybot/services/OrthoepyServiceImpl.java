@@ -180,4 +180,16 @@ public class OrthoepyServiceImpl implements OrthoepyService {
         }
         resetScore(player);
     }
+
+    @Override
+    public Long getPlayersNumber() {
+        return playerRepository.count();
+    }
+
+    @Override
+    public Integer getTotalMistakesNumber() {
+        return mistakeRepository.findAll().stream()
+                .mapToInt(Mistake::getNumber)
+                .sum();
+    }
 }
